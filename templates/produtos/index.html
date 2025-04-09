@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/geral.css">
+    <link rel="stylesheet" href="/static/produtoCadastro.css">
+    <title>{{ 'Editar Produto' if produto else 'Cadastro de Produto' }}</title>
+</head>
+<body>
+    <div class="montanhas"></div>
+    {% include 'partial/header.html '%}
+    <h1>Cadastrar Produtos</h1>
+
+    <article class="content">
+        {% if produto %}
+        <article>
+            {% include 'produtos/editar.html' %}
+        </article>
+        {% else %}
+        <article class="cadastroProdArticle">
+            {% include 'produtos/cadastro.html' %}
+        </article>
+        {% endif %}
+        {% include 'produtos/listar.html' %}
+    </article>
+    <button class="buttonChange" onclick="window.location.href='/'">Acessar Área de Usuarios</button>
+</body>
+</html>

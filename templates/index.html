@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/geral.css">
+    <link rel="stylesheet" href="/static/userCadastro.css">
+    <title>{{ 'Editar' if usuario else 'Cadastro' }} de Usuário</title>
+</head>
+<body>
+    <div class="montanhas"></div>
+    
+    {% include 'partial/header.html '%}
+    <h1>Cadastro de usuarios</h1>
+    <article class="content">
+
+    {% if usuario %}
+        <article>
+            {% include 'usuarios/editar.html' %}
+        </article>
+
+    {% else %}
+        <article class="cadastroArticle">
+            {% include 'usuarios/cadastro.html' %}
+        </article>
+
+    {% endif %}
+        <article class="listaArticleUser">
+            {% include 'usuarios/listar.html' %}
+        </article>
+    </article>
+    <button class="buttonChange" onclick="window.location.href='/produtos'">Acessar Área de Produtos</button>
+    <!-- <script>
+    async function excluirUsuario(url, element) {
+        if (confirm("Tem certeza que deseja excluir este usuário?")) {
+            try {
+                const response = await fetch(url, {
+                    method: 'DELETE',
+                });
+                if (response.ok) {
+                    // Remover a linha do usuário da tabela/lista
+                    element.parentNode.remove();
+                    alert("Usuário excluído com sucesso!");
+                } else {
+                    const errorData = await response.json();
+                    alert(`Erro ao excluir usuário: ${errorData.message || 'Erro desconhecido'}`);
+                }
+            } catch (error) {
+                console.error("Erro ao fazer a requisição DELETE:", error);
+                alert("Ocorreu um erro ao tentar excluir o usuário.");
+            }
+        }
+    }
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,14 @@
+    <article class="listaProdutos">
+
+        <h2>Lista de Produtos</h2>
+        
+        <ul>
+            {% for produto in produtos %}
+            <li>
+                {{ produto[1] }} - R$ {{ produto[2] }} (Estoque: {{ produto[3] }})
+                <a href="/produtos/edit/{{ produto[0] }}">Editar</a>
+                <a href="/produtos/delete/{{ produto[0] }}">Excluir</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </article>
